@@ -6,8 +6,8 @@ import RideSelector from './components/RideSelector';
 import Link from 'next/link';
 
 const Confirm = () => {
-    const [pikupCoordinates, setPikupCoordinates] = useState()
-    const [dropoffCoordinates, setDropoffCoordinates] = useState()
+    const [pikupCoordinates, setPikupCoordinates] = useState([0, 0])
+    const [dropoffCoordinates, setDropoffCoordinates] = useState([0, 0])
 
     const router = useRouter();
     const {pikup, dropoff} = router.query;
@@ -54,7 +54,7 @@ const Confirm = () => {
             dropoffCoordinates={dropoffCoordinates}
         />
         <RideContainer>
-            <RideSelector />
+            <RideSelector pikupCoordinates={pikupCoordinates} dropoffCoordinates={dropoffCoordinates} />
             <ConfirmButtonContainer>
                 <ConfirmButton>Confirm UberX</ConfirmButton>
             </ConfirmButtonContainer>
